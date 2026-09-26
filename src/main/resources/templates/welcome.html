@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the School Portal</title>
+</head>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px;">
+
+<!-- Main Container -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+
+    <!-- Header -->
+    <tr>
+        <td style="background-color: #0046ad; padding: 30px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Welcome to <span
+                    th:text="${schoolName}">Our School</span></h1>
+        </td>
+    </tr>
+
+    <!-- Body -->
+    <tr>
+        <td style="padding: 30px; color: #333333; line-height: 1.6;">
+            <p style="font-size: 16px;">Dear <strong th:text="${studentName}">Student</strong>,</p>
+
+            <p style="font-size: 16px;">Your account for the school portal has been successfully created. Below are your
+                login credentials to access your schedule, grades, and resources.</p>
+
+            <!-- Credentials Box -->
+            <div style="background-color: #f8f9fa; border-left: 4px solid #0046ad; padding: 15px; margin: 25px 0; border-radius: 4px;">
+                <p style="margin: 8px 0;"><strong>Email / Username:</strong> <span
+                        th:text="${email}">student@school.com</span></p>
+                <p style="margin: 8px 0;"><strong>Temporary Password:</strong> <code
+                        style="background-color: #e2e8f0; padding: 4px 8px; border-radius: 3px; font-size: 15px;"
+                        th:text="${tempPassword}">TempPass123!</code></p>
+            </div>
+
+            <!-- Warning / Action -->
+            <p style="font-size: 15px; color: #d32f2f; font-weight: bold; background-color: #ffebee; padding: 10px; border-radius: 4px; border: 1px solid #ef9a9a;">
+                ⚠️ Important: For security reasons, you must change this temporary password immediately after your first
+                login.
+            </p>
+
+            <!-- Login Button -->
+            <div style="text-align: center; margin: 35px 0;">
+                <a th:href="${loginUrl}"
+                   style="background-color: #0046ad; color: #ffffff; text-decoration: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; font-size: 16px; display: inline-block;">Login
+                    to Portal</a>
+            </div>
+
+            <p style="font-size: 14px; color: #666666; margin-top: 30px;">
+                If you have any issues accessing your account, please contact the IT Administration desk.
+            </p>
+
+            <p style="font-size: 16px; margin-top: 30px; margin-bottom: 0;">
+                Best regards,<br>
+                <strong>The IT Department</strong>
+            </p>
+        </td>
+    </tr>
+
+    <!-- Footer -->
+    <tr>
+        <td style="background-color: #eeeeee; padding: 15px; text-align: center; font-size: 12px; color: #888888;">
+            <p style="margin: 0;">This is an automated message, please do not reply.</p>
+            <p style="margin: 5px 0 0 0;">&copy; <span th:text="${#dates.year(#dates.createNow())}">2026</span> <span
+                    th:text="${schoolName}">School Name</span>. All rights reserved.</p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
